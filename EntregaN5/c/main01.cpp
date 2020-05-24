@@ -114,6 +114,7 @@ void listaAprovados(List *list, int index) {
             if (ponteiro->data.nota >= 7) {
                 printf("Nome: %s\n", ponteiro->data.nome);
                 printf("Nota: R$%.2f\n", ponteiro->data.nota);
+                contador++;
             }
             ponteiro = ponteiro->next;
         }
