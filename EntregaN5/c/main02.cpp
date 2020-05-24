@@ -215,8 +215,9 @@ void xchgNodes(List *list, Node *nodeA, Node *nodeB) {
 
     pb->next = nodeA;
 
-    Node *pointer = nodeA->next;
+    Node* pointer = nodeA->next;
     nodeA->next = nodeB->next;
+    nodeA->last = nodeB->last;
     nodeB->next = pointer;
 }
 

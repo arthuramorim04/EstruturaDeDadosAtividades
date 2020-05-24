@@ -10,6 +10,7 @@ typedef struct dataNode{
 typedef struct node{
     DataNode data;
     struct node* next;
+    struct node* last;
 } Node;
 
 //definindo o tamanho da lista e seu inicio
@@ -34,11 +35,19 @@ List* createList(){
 
 //funcao push que ira inserir os elementos no comeco da lista
 void push(List* list, DataNode data){
-    Node* node = (Node*) malloc(sizeof(Node));
+    Node *node = (Node *) malloc(sizeof(Node));
+    if (list[(list->size - 1)].size > 0) {
+        node->data = data;
+        node->next = list->head;
+        node->last = list[list->size - 1].head;
+        list->head = node;
 
-    node->data = data;
-    node->next = list->head;
-    list->head = node;
+    } else {
+        node->data = data;
+        node->next = list->head;
+        node->last = NULL;
+        list->head = node;
+    }
     list->size++;
 }
 
@@ -143,6 +152,7 @@ void xchgNodes(List* list, Node* nodeA, Node* nodeB){
 
     Node* pointer = nodeA->next;
     nodeA->next = nodeB->next;
+    nodeA->last = nodeB->last;
     nodeB->next = pointer;
 }
 
