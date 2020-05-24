@@ -137,7 +137,7 @@ int main() {
         printf("\n");
 
         push(lista, data);
-        funcionarios--;
+        alunos--;
     };
 
     printList(lista);
