@@ -70,6 +70,25 @@ void printList(List* list){
     }
     printf("\n");
 }
+void printListMaiorSalario(List* list, float mairosalario){
+    Node* pointer = list->head;
+
+    if (isEmpty(list)){
+        printf("Lista Vazia\n");
+        return;
+    }
+
+    printf("------Listas de Funcionario(s) com mairo salario------\n");
+    while (pointer != NULL){
+        if(pointer->data.salario == mairosalario){
+            printf("Nome: %s\n", pointer->data.nome);
+            printf("Salario: R$%.2f\n", pointer->data.salario);
+            printf("\n");
+        }
+        pointer = pointer->next;
+    }
+    printf("\n");
+}
 
 //retorna se a lista esta vazia
 bool isEmpty(List* list){
@@ -162,6 +181,7 @@ Node* min(List* list, int index){
     return NULL;
 }
 
+
 //funcao para achar o valor maximo da lista
 Node* max(List* list, int index){
     Node* ponteiro = atPos(list, index);
@@ -176,6 +196,12 @@ Node* max(List* list, int index){
         return maxNode;
     }
     return NULL;
+}
+
+
+void listaMaiorSalario(List* lista, int index){
+    Node* maiorSalario = max(lista,index);
+    printListMaiorSalario(lista,maiorSalario->data.salario);
 }
 
 float mediaSalarial(List* list, int index){
@@ -257,7 +283,8 @@ int main(){
 
         switch (menu){
             case 1:
-                printf("\nMaior salario: %.2f\n", max(lista, 0)->data.salario);
+                printf("\nMaior salario:\n");
+                listaMaiorSalario(lista, 0);
                 break;
             case 2:
                 printf("\nMeedia salarial: %.2f\n", mediaSalarial(lista,0));
