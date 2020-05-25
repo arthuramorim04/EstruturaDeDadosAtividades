@@ -78,7 +78,7 @@ void printListMaiorSalario(List* list, float mairosalario){
         return;
     }
 
-    printf("------Listas de Funcionario(s) com mairo salario------\n");
+    printf("------Listas de Funcionario(s) com maior salario------\n");
     while (pointer != NULL){
         if(pointer->data.salario == mairosalario){
             printf("Nome: %s\n", pointer->data.nome);
@@ -232,7 +232,7 @@ int contagemFaixaSalarial(List* list, int index){
     Node* ponteiro = atPos(list,index);
     float faixaSalarial = 0.0;
     int contador = 0;
-    printf("\nDigite a faixa salaria: \n");
+    printf("\nDigite a faixa salarial: \n");
 
     scanf("%f",&faixaSalarial);
 
@@ -278,7 +278,7 @@ int main(){
     printList(lista);
     int menu = -1;
     do{
-        printf("Escolha uma das seguintes opcoes:\n1) Verificar funcionario com maior salario\n2) Verificar a media salarial\n3) Quantidade de funcionarios com salario superior a x valor\nPara o programa encerrar digite 0\n:");
+        printf("\n Escolha uma das seguintes opcoes:\n1) Verificar funcionario com maior salario\n2) Verificar a media salarial\n3) Quantidade de funcionarios com salario superior a x valor\nPara o programa encerrar digite 0: \n");
         scanf("%d", &menu);
 
         switch (menu){
@@ -290,7 +290,7 @@ int main(){
                 printf("\nMeedia salarial: %.2f\n", mediaSalarial(lista,0));
                 break;
             case 3:
-                printf("\nQuantidade de funcionarios nessa faixa salarial: %i",contagemFaixaSalarial(lista,0));
+                printf("\nQuantidade de funcionarios nessa faixa salarial: %i \n",contagemFaixaSalarial(lista,0));
                 break;
 
             default:
